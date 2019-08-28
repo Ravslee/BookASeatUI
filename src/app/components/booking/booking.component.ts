@@ -15,9 +15,8 @@ export class BookingComponent implements OnInit {
     cols: []
   };
 
+  public rowCode: any = 64;
   public selectedSeats: any = [];
-
-
 
   public config: any = {
     sizeOfGrid: {
@@ -45,12 +44,11 @@ export class BookingComponent implements OnInit {
     this.localStorage.getItem(KEY_SELECTED_SEATS)
       .toPromise()
       .then(res => {
-        if(res){
+        if (res) {
           this.selectedSeats = res;
           console.log("State Loaded!");
         }
       });
-
   }
 
   onSeatSelected(i, j) {
@@ -62,11 +60,9 @@ export class BookingComponent implements OnInit {
       this.selectedSeats.push({ column: j, row: i })
     }
     console.log(this.selectedSeats);
-
     this.localStorage.setItem(KEY_SELECTED_SEATS, this.selectedSeats)
       .toPromise()
       .then(res => {
-
         console.log("State added!");
       })
 
@@ -82,5 +78,19 @@ export class BookingComponent implements OnInit {
     return this.selectedSeats.find(el => {
       return el.column == j && el.row == i;
     });
+  }
+
+  public getRowCode(code) {
+    return String.fromCharCode(code + 1);
+  }
+
+  public onSubmit() {
+
+    this.selectedSeats.forEach(el => {
+      this.config.booked.push(el);
+    });
+
+    console.log(this.config);
+
   }
 }
