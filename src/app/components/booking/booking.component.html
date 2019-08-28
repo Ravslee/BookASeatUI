@@ -1,31 +1,27 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12" >
-            <table style="margin: auto; margin-top:16px">
-                <tr *ngFor="let row of seats.rows; let i=index;" style="margin-top: 16px">
-                    <td *ngFor="let col of seats.cols; let j=index">
+  <div class="row">
+    <div class="col-lg-12">
+      <table style="margin: auto; margin-top:16px">
+        <tr *ngFor="let row of seats.rows; let i=index;" style="margin-top: 16px">
+          <td *ngFor="let col of seats.cols; let j=index">
 
-                        <button *ngIf="!isSeatUnAvailable(i+1,j+1) && isSelectedSeat(i+1,j+1)" type="button"
-                          (click)="onSeatSelected(i+1,j+1)" class="btn btn-success seat">
-                          {{getRowCode(rowCode+i)}}{{j+1}}</button>
+            <button *ngIf="!isSeatUnAvailable(i+1,j+1) && isSelectedSeat(i+1,j+1)" type="button"
+              (click)="onSeatSelected(i+1,j+1)" class="btn btn-success seat">
+              {{getRowCode(rowCode+i)}}{{j+1}}</button>
 
-                        <button *ngIf="isSeatUnAvailable(i+1,j+1)" type="button"
-                            style="cursor:not-allowed" class="btn btn-danger seat">
-                            {{getRowCode(rowCode+i)}}{{j+1}}</button>
+            <button *ngIf="isSeatUnAvailable(i+1,j+1)" type="button" style="cursor:not-allowed"
+              class="btn btn-danger seat">
+              {{getRowCode(rowCode+i)}}{{j+1}}</button>
 
-                        <button *ngIf="!isSeatUnAvailable(i+1,j+1) && !isSelectedSeat(i+1,j+1)" type="button" 
-                            class="btn btn-outline-secondary seat" (click)="onSeatSelected(i+1,j+1)"> {{getRowCode(rowCode+i)}}{{j+1}}</button>
-                    </td>
-                </tr>
-            </table>
-        
-            <button type="button"   (click)="onSubmit()" class="btn btn-primary btn-sm float-right mt32 mr120">Submit</button>
+            <button *ngIf="!isSeatUnAvailable(i+1,j+1) && !isSelectedSeat(i+1,j+1)" type="button"
+              class="btn btn-outline-secondary seat" (click)="onSeatSelected(i+1,j+1)">
+              {{getRowCode(rowCode+i)}}{{j+1}}</button>
+          </td>
+        </tr>
+      </table>
 
-        </div>
+      <button type="button" (click)="onSubmit()" class="btn btn-primary btn-sm float-right mt32 mr120">Submit</button>
+
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-
-        </div>
-    </div>
+  </div>
 </div>
