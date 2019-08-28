@@ -1,5 +1,12 @@
-# Neutrinos
+# Seat booking 
 
+Angular Project
+
+Steps to run:
+
+`npm init`
+
+`ng serve`
 
 Consider making a dynamic grid layout component for an application like BookMyShow. This component generates view based on certain configurations provided from Backend.
 Configurations from the backend includes (can be mocked in a json file):
